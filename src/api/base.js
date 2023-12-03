@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 // Set up a base URL for your API
 const baseURL = process.env.REACT_APP_BASE_URL; // Replace with your actual API base URL
@@ -14,6 +15,17 @@ baseApi.interceptors.request.use(
     return config;
   },
   function (error) {
+    return Promise.reject(error);
+  }
+);
+
+baseApi.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if ((error.code = "ERR_NETWORK")) toast.error(error.code);
+
     return Promise.reject(error);
   }
 );
