@@ -6,10 +6,10 @@ import { Admin } from "../Pages/Admin";
 import { Provider } from "../Pages/Provider";
 import { CreateProduct } from "../Pages/Provider/CreateProduct";
 import { UpdateProduct } from "../Pages/Provider/UpdateProduct";
-import {
-  MedicineDashboard,
-} from "../Pages/Medoxer.jsx/MedicineDashboard/index.jsx";
+import { MedicineDashboard } from "../Pages/Medoxer.jsx/MedicineDashboard/index.jsx";
 import { OrderDashboard } from "../Pages/Medoxer.jsx/OrderDashboard/index.jsx";
+import { Checkout } from "../Pages/Checkout/index.jsx";
+import { Orders } from "../Pages/Orders/index.jsx";
 
 export const AuthorizedRoutes = () => {
   return (
@@ -23,6 +23,8 @@ export const AuthorizedRoutes = () => {
         <Route path="/provider/edit/:id" element={<UpdateProduct />} />
         <Route path="/medoxer/medicines" element={<MedicineDashboard />} />
         <Route path="/medoxer/orders" element={<OrderDashboard />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/orders" element={<Orders />} />
       </Routes>
     </>
   );

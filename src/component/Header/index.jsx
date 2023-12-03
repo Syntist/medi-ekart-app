@@ -139,6 +139,16 @@ function ResponsiveAppBar() {
               Home
             </Button>
 
+            <Button
+              onClick={() => {
+                navigate("/orders");
+                handleCloseNavMenu();
+              }}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Orders
+            </Button>
+
             {user.type === ADMIN && (
               <Button
                 onClick={() => {

@@ -1,6 +1,6 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { BrowserRouter } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthorizedRoutes } from "./Routes/AuthorizedRoutes";
 import { UnauthorizedRoutes } from "./Routes/UnauthorizedRoutes";

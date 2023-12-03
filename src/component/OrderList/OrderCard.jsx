@@ -16,9 +16,6 @@ import { useLocation } from "react-router-dom";
 import { approveOrder, rejectOrder } from "../../api/medoxer";
 import { toast } from "react-toastify";
 
-const imageUrl =
-  "https://img.freepik.com/premium-vector/medical-prescription-rx-form-pharmacy-hospital_8071-6868.jpg?w=740";
-
 const OrderCard = ({ order, refetch }) => {
   const { pathname } = useLocation();
   const { user } = useAuth();
@@ -55,14 +52,14 @@ const OrderCard = ({ order, refetch }) => {
             {new Date(order.orderDate).toLocaleString()}
           </Typography>
 
-          {imageUrl && (
+          {order.prescriptionUrl && (
             <>
               <Divider style={{ margin: "10px 0" }} />
               <Typography>
                 <strong>Prescription:</strong>{" "}
                 {/* Render the prescription URL or image here */}
                 <img
-                  src={imageUrl}
+                  src={order.prescriptionUrl}
                   alt="Prescription"
                   style={{ maxWidth: "100%" }}
                 />
@@ -142,7 +139,7 @@ const OrderCard = ({ order, refetch }) => {
               }}
             >
               <img
-                src={imageUrl}
+                src={order.prescriptionUrl}
                 alt="Prescription"
                 style={{ maxWidth: "100%", maxHeight: "100vh" }}
               />

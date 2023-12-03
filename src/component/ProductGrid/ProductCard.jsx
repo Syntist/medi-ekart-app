@@ -53,9 +53,11 @@ const ProductCard = ({ product, refetch }) => {
         </Typography>
         {user.type === USER &&
           !cartItems.find((item) => item._id === product._id) && (
-            <Button onClick={() => addToCart(product)} variant="contained">
-              Add to Cart
-            </Button>
+            <Box display="flex" justifyContent="center" marginTop={2}>
+              <Button onClick={() => addToCart(product)} variant="contained">
+                Add to Cart
+              </Button>
+            </Box>
           )}
         {user.type === PROVIDER && pathname.includes(PROVIDER) && (
           <>

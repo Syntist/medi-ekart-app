@@ -24,7 +24,9 @@ export const CartProvider = ({ children }) => {
   const updateCartItem = (itemId, newQuantity) => {
     setCartItems((prevCartItems) =>
       prevCartItems.map((item) =>
-        item._id === itemId ? { ...item, quantity: newQuantity } : item
+        item._id === itemId
+          ? { ...item, quantity: newQuantity > 0 ? newQuantity : 1 }
+          : item
       )
     );
   };
