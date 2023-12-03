@@ -228,7 +228,12 @@ function ResponsiveAppBar() {
               <MenuItem onClick={handleCloseUserMenu}>
                 <Typography textAlign="center">Account</Typography>
               </MenuItem>
-              <MenuItem onClick={() => logout()}>
+              <MenuItem
+                onClick={() => {
+                  navigate("/");
+                  logout();
+                }}
+              >
                 <Typography textAlign="center">Logout</Typography>
               </MenuItem>
             </Menu>

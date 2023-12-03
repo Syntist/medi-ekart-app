@@ -29,7 +29,7 @@ export const Checkout = () => {
   const navigate = useNavigate();
   const { register, handleSubmit, setValue } = useForm();
   const [file, setFile] = useState();
-  const { cartItems } = useCart();
+  const { cartItems, clearCart } = useCart();
 
   const onSubmit = async (data) => {
     let prescriptionUrl = data.prescriptionUrl;
@@ -46,6 +46,7 @@ export const Checkout = () => {
       .then((res) => {
         toast.success(`${res.data._id} Order has been Created`);
         navigate("/orders");
+        clearCart();
       })
       .catch((err) => toast.error(err?.response?.data?.message));
   };

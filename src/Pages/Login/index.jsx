@@ -13,7 +13,10 @@ export const Login = () => {
 
   const onSubmit = (data) => {
     signIn(data)
-      .then((res) => login(res.data))
+      .then((res) => {
+        login(res.data);
+        navigate("/");
+      })
       .catch((err) => toast.error(err?.response?.data?.message));
   };
   return (
