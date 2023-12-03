@@ -11,7 +11,7 @@ import {
   Box,
 } from "@mui/material";
 import { useAuth } from "../AuthContext";
-import { MEDOXER } from "../../constant";
+import { MEDOXER, PROVIDER } from "../../constant";
 import { useLocation } from "react-router-dom";
 import { approveOrder, rejectOrder } from "../../api/medoxer";
 import { toast } from "react-toastify";
@@ -47,6 +47,21 @@ const OrderCard = ({ order, refetch }) => {
           <Typography>
             <strong>Status:</strong> {order.status}
           </Typography>
+          {order.trackingNumber && (
+            <Typography>
+              <strong>Tracking Number:</strong> {order.trackingNumber}
+            </Typography>
+          )}
+          {order.label &&
+            user.type === MEDOXER &&
+            pathname.includes(MEDOXER) && (
+              <Typography>
+                <strong>Label:</strong>{" "}
+                <a href={order.label} target="_blank" rel="noreferrer">
+                  Download
+                </a>
+              </Typography>
+            )}
           <Typography>
             <strong>Order Date:</strong>{" "}
             {new Date(order.orderDate).toLocaleString()}

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ProductGrid from "../../../component/ProductGrid";
-import { getMedicinesMedoxer, getOrdersMedoxer } from "../../../api/medoxer";
+import { getOrdersMedoxer } from "../../../api/medoxer";
 import OrderList from "../../../component/OrderList";
 
 export const OrderDashboard = () => {

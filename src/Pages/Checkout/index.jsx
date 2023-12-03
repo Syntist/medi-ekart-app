@@ -84,6 +84,12 @@ export const Checkout = () => {
           {...register("city", { required: true })}
           margin="normal"
         />
+        <TextField
+          label="State"
+          fullWidth
+          {...register("state", { required: true })}
+          margin="normal"
+        />
 
         <FormControl sx={{ mt: 1 }} fullWidth>
           <InputLabel id="demo-simple-select-label">
