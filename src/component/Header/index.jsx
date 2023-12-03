@@ -91,21 +91,73 @@ function ResponsiveAppBar() {
             >
               <MenuItem
                 onClick={() => {
-                  navigate("/");
                   handleCloseNavMenu();
+                  navigate("/");
                 }}
               >
                 <Typography textAlign="center">Home</Typography>
               </MenuItem>
+
+              <MenuItem
+                onClick={() => {
+                  handleCloseNavMenu();
+                  navigate("/orders");
+                }}
+              >
+                <Typography textAlign="center">Orders</Typography>
+              </MenuItem>
+
               {user.type === ADMIN && (
                 <MenuItem
                   onClick={() => {
-                    navigate("/admin/users");
                     handleCloseNavMenu();
+                    navigate("/admin");
                   }}
                 >
                   <Typography textAlign="center">Admin Dashboard</Typography>
                 </MenuItem>
+              )}
+
+              {user.type === PROVIDER && (
+                <>
+                  <MenuItem
+                    onClick={() => {
+                      handleCloseNavMenu();
+                      navigate("/provider/medicines");
+                    }}
+                  >
+                    <Typography textAlign="center">My Products</Typography>
+                  </MenuItem>
+                  <MenuItem
+                    onClick={() => {
+                      handleCloseNavMenu();
+                      navigate("/provider/create");
+                    }}
+                  >
+                    <Typography textAlign="center">Create Product</Typography>
+                  </MenuItem>
+                </>
+              )}
+
+              {user.type === MEDOXER && (
+                <>
+                  <MenuItem
+                    onClick={() => {
+                      handleCloseNavMenu();
+                      navigate("/medoxer/medicines");
+                    }}
+                  >
+                    <Typography textAlign="center">Medicines Dashboard</Typography>
+                  </MenuItem>
+                  <MenuItem
+                    onClick={() => {
+                      handleCloseNavMenu();
+                      navigate("/medoxer/orders");
+                    }}
+                  >
+                    <Typography textAlign="center">Orders Dashboard</Typography>
+                  </MenuItem>
+                </>
               )}
             </Menu>
           </Box>
@@ -114,7 +166,7 @@ function ResponsiveAppBar() {
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            onClick={() => navigate("/")}
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
