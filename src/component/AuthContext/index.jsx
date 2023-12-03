@@ -39,14 +39,16 @@ export const AuthProvider = ({ children }) => {
       setUser(JSON.parse(storedUser));
     }
 
-    verifyLogin()
-      .then((res) => {
-        setUser(res.data);
-        localStorage.setItem("user", JSON.stringify(res.data));
-      })
-      .catch((err) => {
-        logout();
-      });
+    if (storedUser) {
+      verifyLogin()
+        .then((res) => {
+          setUser(res.data);
+          localStorage.setItem("user", JSON.stringify(res.data));
+        })
+        .catch((err) => {
+          logout();
+        });
+    }
   }, []);
 
   return (
