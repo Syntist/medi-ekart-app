@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Divider } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 import { MEDOXER, PROVIDER, USER } from "../../constant";
@@ -29,28 +29,124 @@ const ProductCard = ({ product, refetch }) => {
         image={product.imageUrl || url}
       />
       <CardContent>
-        <Typography variant="h6" component="div">
-          {product.name}
-        </Typography>
-        <Typography color="textSecondary" gutterBottom>
-          {product.manufacturer}
-        </Typography>
-        {/* Add more details as needed */}
-        <Typography variant="body2" component="p">
-          {product.description}
-        </Typography>
-        <Typography variant="body2" color="textSecondary">
-          Price: ${product.price}
-        </Typography>
-        <Typography variant="body2" color="textSecondary">
-          Stock: {product.stock}
-        </Typography>
-        <Typography variant="body2" color="textSecondary">
-          Expiry Date: {new Date(product.expiryDate).toLocaleDateString()}
-        </Typography>
-        <Typography variant="body2" color="textSecondary">
-          Prescription Required: {product.prescriptionRequired ? "Yes" : "No"}
-        </Typography>
+        <Box
+          sx={{
+            marginBottom: "10px",
+            textTransform: "uppercase"
+          }}
+        >
+          <Typography
+            variant="h6"
+            sx={{
+              textTransform: "none",
+              fontWeight: "500"
+            }}
+          >
+            {product.name}
+          </Typography>
+          <Typography variant="caption" color="textSecondary">
+            {product.description}
+          </Typography>
+          <Typography variant="caption">
+            &nbsp; - &nbsp;
+          </Typography>
+          <Typography color="textSecondary" variant="caption">
+            {product.manufacturer}
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            gap: "10px",
+          }}
+        >
+          {/* Add more details as needed */}
+          <Box
+            sx={{
+              flexGrow: "1",
+              flexBasis: "0",
+
+              "p": {
+                marginTop: "5px",
+                marginBottom: "5px",
+              }
+            }}
+          >
+            <Typography variant="body2" sx={{ fontSize: "12px", fontWeight: 500}}>
+              Expiry Date: {new Date(product.expiryDate).toLocaleDateString()}
+            </Typography>
+            <Typography variant="body2" sx={{ fontSize: "12px", fontWeight: 500}}>
+              Prescription Required: {product.prescriptionRequired ? "Yes" : "No"}
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              flexGrow: "1",
+              flexBasis: "0",
+              textAlign: "right",
+              backgroundColor: "#f7f7f7",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-end",
+              borderLeft: "2px solid green"
+            }}
+          >
+            <Typography
+              variant="h6"
+            >
+              ${product.price}
+            </Typography>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            marginTop: "20px"
+          }}
+        >
+          <Box
+            sx={{
+              width: "100%",
+              backgroundColor: "#ececec",
+              borderRadius: "99px",
+              position: "relative",
+              height: "3px",
+            }}
+          >
+            <Box
+              color="textPrimary"
+              sx={{
+                position: "absolute",
+                left: "0",
+                top: "0",
+                height: "100%",
+                borderRadius: "inherit",
+                width: product.stock / 10 + '%',
+                backgroundColor: "green",
+              }}
+            ></Box>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "5px",
+              justifyContent: "space-between",
+              marginTop: "5px"
+            }}
+          >
+            <Typography
+              variant="caption"
+              color="textSecondary"
+            >
+              AVAILABLE: <Typography variant="caption" color="textPrimary">{product.stock}</Typography>
+            </Typography>
+            <Typography
+              variant="caption"
+              color="textSecondary"
+            >
+              SOLD: <Typography variant="caption" color="textPrimary">10</Typography>
+            </Typography>
+          </Box>
+        </Box>
         {user.type === USER &&
           !cartItems.find((item) => item._id === product._id) && (
             <Box display="flex" justifyContent="center" marginTop={2}>
