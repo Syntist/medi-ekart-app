@@ -10,6 +10,7 @@ import { MedicineDashboard } from "../Pages/Medoxer.jsx/MedicineDashboard/index.
 import { OrderDashboard } from "../Pages/Medoxer.jsx/OrderDashboard/index.jsx";
 import { Checkout } from "../Pages/Checkout/index.jsx";
 import { Orders } from "../Pages/Orders/index.jsx";
+import { Account } from "../Pages/Account/index.jsx";
 
 export const AuthorizedRoutes = () => {
   return (
@@ -18,6 +19,7 @@ export const AuthorizedRoutes = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/account" element={<Account />} />
         <Route path="/provider/medicines" element={<Provider />} />
         <Route path="/provider/create" element={<CreateProduct />} />
         <Route path="/provider/edit/:id" element={<UpdateProduct />} />

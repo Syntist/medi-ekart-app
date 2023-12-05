@@ -42,6 +42,8 @@ export const AuthProvider = ({ children }) => {
     if (storedUser) {
       verifyLogin()
         .then((res) => {
+          if (!res.data.authorized) return logout();
+
           setUser(res.data);
           localStorage.setItem("user", JSON.stringify(res.data));
         })

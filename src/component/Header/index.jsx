@@ -69,6 +69,7 @@ function ResponsiveAppBar() {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
+              account
               <MenuIcon />
             </IconButton>
             <Menu
@@ -147,7 +148,9 @@ function ResponsiveAppBar() {
                       navigate("/medoxer/medicines");
                     }}
                   >
-                    <Typography textAlign="center">Medicines Dashboard</Typography>
+                    <Typography textAlign="center">
+                      Medicines Dashboard
+                    </Typography>
                   </MenuItem>
                   <MenuItem
                     onClick={() => {
@@ -277,7 +280,12 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <MenuItem onClick={handleCloseUserMenu}>
+              <MenuItem
+                onClick={() => {
+                  navigate("/account");
+                  handleCloseUserMenu();
+                }}
+              >
                 <Typography textAlign="center">Account</Typography>
               </MenuItem>
               <MenuItem
