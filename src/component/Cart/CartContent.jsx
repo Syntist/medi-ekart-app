@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import { useCart } from "../CartContext";
 
-export const CartContent = ({ cartItems }) => {
+export const CartContent = ({ cartItems, discount }) => {
   const { updateCartItem, removeFromCart } = useCart();
 
   const calculateTotalPrice = () => {
@@ -21,6 +21,9 @@ export const CartContent = ({ cartItems }) => {
     cartItems?.forEach((item) => {
       totalPrice += item.price * item.quantity;
     });
+
+    if (discount) return totalPrice.toFixed(2) - totalPrice.toFixed(2) * 0.2;
+
     return totalPrice.toFixed(2);
   };
 
@@ -86,7 +89,8 @@ export const CartContent = ({ cartItems }) => {
       </TableContainer>
 
       <Typography variant="h6" color="textSecondary" marginTop={2}>
-        Total Price: ${calculateTotalPrice()}
+        Total Price: $
+        {calculateTotalPrice() + `${discount ? " - Discounted" : ""}`}
       </Typography>
     </CardContent>
   );

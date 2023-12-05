@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Box, Button, Divider } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 import { MEDOXER, PROVIDER, USER } from "../../constant";

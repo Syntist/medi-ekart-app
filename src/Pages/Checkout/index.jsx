@@ -16,9 +16,9 @@ import { CartContent } from "../../component/Cart/CartContent";
 import { uploadImage } from "../../utils/cloudinary";
 import { createOrder } from "../../api/user";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 
 const insuranceCompanies = [
+  "None",
   "Health insurance companies",
   "Cigna",
   "Humana",
@@ -26,10 +26,16 @@ const insuranceCompanies = [
 ];
 
 export const Checkout = () => {
-  const navigate = useNavigate();
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue, watch } = useForm({
+    mode: "onChange",
+  });
   const [file, setFile] = useState();
-  const { cartItems, clearCart } = useCart();
+
+  const { cartItems } = useCart();
+
+  const insuranceExist =
+    watch().insuranceCompany &&
+    watch().insuranceCompany !== insuranceCompanies[0];
 
   const onSubmit = async (data) => {
     let prescriptionUrl = data.prescriptionUrl;
@@ -42,10 +48,16 @@ export const Checkout = () => {
       quantity: item.quantity,
     }));
 
-    createOrder({ ...data, medicines, prescriptionUrl })
+    createOrder({
+      ...data,
+      medicines,
+      prescriptionUrl,
+      insuranceCompany:
+        data.insuranceCompany !== insuranceCompanies[0]
+          ? data.insuranceCompany
+          : undefined,
+    })
       .then((res) => {
-        // clearCart();
-
         window.location = res.data?.url;
       })
       .catch((err) => toast.error(err?.response?.data?.message));
@@ -57,7 +69,7 @@ export const Checkout = () => {
         Checkout
       </Typography>
 
-      <CartContent cartItems={cartItems} />
+      <CartContent cartItems={cartItems} discount={insuranceExist} />
       {/* Checkout Form */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField
@@ -99,6 +111,7 @@ export const Checkout = () => {
             labelId="demo-simple-select-label"
             {...register("insuranceCompany")}
             id="demo-simple-select"
+            defaultValue={insuranceCompanies[0]}
             label="Insurance Company"
             fullWidth
           >
@@ -110,14 +123,16 @@ export const Checkout = () => {
           </Select>
         </FormControl>
 
-        <TextField
-          label="Policy Number"
-          fullWidth
-          {...register("policyNumber")}
-          margin="normal"
-        />
+        {insuranceExist && (
+          <TextField
+            label="Policy Number"
+            fullWidth
+            {...register("policyNumber")}
+            margin="normal"
+          />
+        )}
 
-        <Box width="300px" marginBottom="16px">
+        <Box width="300px" mt={2} marginBottom="16px">
           <TextField
             fullWidth
             type="file"

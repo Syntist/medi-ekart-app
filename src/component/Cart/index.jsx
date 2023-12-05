@@ -5,36 +5,15 @@ import {
   Typography,
   IconButton,
   Card,
-  CardContent,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
   Button,
   Box,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { useCart } from "../CartContext";
 import { useNavigate } from "react-router-dom";
 import { CartContent } from "./CartContent";
 
 const CartModal = ({ open, onClose, cartItems }) => {
   const navigate = useNavigate();
-  const { updateCartItem, removeFromCart } = useCart();
-
-  const calculateTotalPrice = () => {
-    let totalPrice = 0;
-    cartItems?.forEach((item) => {
-      totalPrice += item.price * item.quantity;
-    });
-    return totalPrice.toFixed(2);
-  };
-
-  const handleQuantityChange = (_id, newQuantity) => {
-    updateCartItem(_id, newQuantity);
-  };
 
   return (
     <Modal open={open} onClose={onClose}>
