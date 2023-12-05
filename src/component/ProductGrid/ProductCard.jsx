@@ -139,12 +139,6 @@ const ProductCard = ({ product, refetch }) => {
             >
               AVAILABLE: <Typography variant="caption" color="textPrimary">{product.stock}</Typography>
             </Typography>
-            <Typography
-              variant="caption"
-              color="textSecondary"
-            >
-              SOLD: <Typography variant="caption" color="textPrimary">10</Typography>
-            </Typography>
           </Box>
         </Box>
         {user.type === USER &&
