@@ -44,7 +44,9 @@ export const CartContent = ({ cartItems }) => {
           <TableBody>
             {cartItems?.map((item) => (
               <TableRow key={item._id}>
-                <TableCell style={{ textAlign: "center" }}>{item.name}</TableCell>
+                <TableCell style={{ textAlign: "center" }}>
+                  {item.name}
+                </TableCell>
                 <TableCell style={{ textAlign: "center" }}>
                   <IconButton
                     onClick={() =>
@@ -62,7 +64,9 @@ export const CartContent = ({ cartItems }) => {
                     +
                   </IconButton>
                 </TableCell>
-                <TableCell style={{ textAlign: "center" }}>${item.price.toFixed(2)}</TableCell>
+                <TableCell style={{ textAlign: "center" }}>
+                  ${item.price.toFixed(2)}
+                </TableCell>
                 <TableCell style={{ textAlign: "center" }}>
                   ${(item.price * item.quantity).toFixed(2)}
                 </TableCell>
