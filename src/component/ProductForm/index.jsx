@@ -13,7 +13,12 @@ import styled from "@emotion/styled";
 const ProductForm = ({ initialValue, onSubmit }) => {
   const [file, setFile] = useState(initialValue?.imageUrl);
   const { register, handleSubmit, setValue } = useForm({
-    defaultValues: initialValue,
+    defaultValues: {
+      ...initialValue,
+      expiryDate:
+        initialValue?.expiryDate &&
+        new Date(initialValue?.expiryDate).toISOString().split("T")[0],
+    },
     mode: "onChange",
   });
 

@@ -11,7 +11,7 @@ import {
   Box,
 } from "@mui/material";
 import { useAuth } from "../AuthContext";
-import { MEDOXER, PROVIDER } from "../../constant";
+import { MEDOXER } from "../../constant";
 import { useLocation } from "react-router-dom";
 import { approveOrder, rejectOrder } from "../../api/medoxer";
 import { toast } from "react-toastify";
@@ -41,9 +41,11 @@ const OrderCard = ({ order, refetch }) => {
           <Typography>
             <strong>Order ID:</strong> {order._id}
           </Typography>
-          <Typography>
-            <strong>User ID:</strong> {order.userId}
-          </Typography>
+          {user.type === MEDOXER && pathname.includes(MEDOXER) && (
+            <Typography>
+              <strong>User ID:</strong> {order.userId.username}
+            </Typography>
+          )}
           <Typography>
             <strong>Status:</strong> {order.status}
           </Typography>
@@ -116,10 +118,14 @@ const OrderCard = ({ order, refetch }) => {
                 >
                   <Button
                     onClick={() => {
-                      approveOrder(order._id).then((res) => {
-                        toast.success(`${res.data._id} has been Approved`);
-                        refetch((prev) => !prev);
-                      });
+                      approveOrder(order._id)
+                        .then((res) => {
+                          toast.success(`${res.data._id} has been Approved`);
+                          refetch((prev) => !prev);
+                        })
+                        .catch((err) =>
+                          toast.error(err.response?.data?.message)
+                        );
                     }}
                     variant="contained"
                   >

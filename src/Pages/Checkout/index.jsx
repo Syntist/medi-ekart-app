@@ -44,9 +44,9 @@ export const Checkout = () => {
 
     createOrder({ ...data, medicines, prescriptionUrl })
       .then((res) => {
-        toast.success(`${res.data._id} Order has been Created`);
-        navigate("/orders");
-        clearCart();
+        // clearCart();
+
+        window.location = res.data?.url;
       })
       .catch((err) => toast.error(err?.response?.data?.message));
   };

@@ -24,7 +24,6 @@ baseApi.interceptors.response.use(
     return response;
   },
   (error) => {
-    if ((error.code = "ERR_NETWORK")) toast.error(error.code);
 
     return Promise.reject(error);
   }
