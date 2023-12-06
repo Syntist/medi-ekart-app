@@ -32,8 +32,8 @@ export const Account = () => {
       .then((res) => {
         if (!res.data.authorized) {
           logout();
-          navigate("/");
           toast.success("Information Updated, Authorization Required to Login");
+          navigate("/");
         }
         reset(res.data);
         setUser(res.data);

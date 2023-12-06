@@ -72,13 +72,14 @@ export const Register = () => {
           />
         </Box>
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Age</InputLabel>
+          <InputLabel id="demo-simple-select-label">Type</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={getValues("type")}
+            defaultValue={getValues("type")}
             label="Type"
             onChange={(e) => setValue("type", e.target.value)}
+            {...register("type")}
           >
             <MenuItem value={USER}>User</MenuItem>
             <MenuItem value={MEDOXER}>Medoxer</MenuItem>
