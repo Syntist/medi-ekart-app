@@ -1,70 +1,177 @@
-# Getting Started with Create React App
+# Medi-Ekart
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**A Modern E-Commerce Platform for Medicines**
 
-## Available Scripts
+Medi-Ekart is an advanced e-commerce platform for purchasing medicines online, designed to ensure secure, validated, and seamless transactions for consumers. The platform offers robust features for consumers, medoxers, providers, and admins, ensuring quality assurance and a superior user experience.
 
-In the project directory, you can run:
+## Table of Contents
+1. [Description](#description)
+2. [Features](#features)
+3. [Technologies Used](#technologies-used)
+4. [Roles and Responsibilities](#roles-and-responsibilities)
+5. [Setup Instructions](#setup-instructions)
+6. [Project Links](#project-links)
+7. [Sprint Schedule](#sprint-schedule)
+8. [Test Cases](#test-cases)
+9. [License](#license)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Description
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The rise of e-commerce has revolutionized how we shop for daily needs. Medi-Ekart aims to automate the process of purchasing medicines online, addressing common issues like:
 
-### `npm test`
+- Sale of expired and unauthorized medicines.
+- Excessive pricing.
+- Difficulty traveling to pharmacies.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The platform offers a seamless experience for consumers, medoxers (validators), providers, and admins.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### For Consumers
+- Minimalistic User Interface for purchasing medicines.
+- Order tracking and payment systems.
+- Secure and stable platform for record management.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### For Medoxers
+- Validation of medications and prescriptions.
+- Monitoring deliveries to consumers.
 
-### `npm run eject`
+### For Providers
+- Manage and supply medication stock.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### For Admins
+- Manage user roles and validate transactions.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Technologies Used
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Programming Language**: JavaScript
+- **Frontend**: React.js
+- **Backend**: Node.js with Express.js
+- **Database**: MongoDB
+- **Cloud Deployment**: Vercel (Frontend), Oracle Cloud (Backend)
 
-## Learn More
+### MERN Stack
+- **MongoDB**: Database configuration and management.
+- **Express.js**: Backend framework for routing, models, controllers, and authentication.
+- **React.js**: Frontend development with state management and form submissions.
+- **Node.js**: JavaScript runtime for backend execution.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Roles and Responsibilities
 
-### Code Splitting
+| Team Member                        | Role & Responsibilities                                                                 |
+| -----------------------------------| ---------------------------------------------------------------------------------------|
+| **Sai Krishna Voruganti**          | Frontend for Medoxer & Provider, Backend logic, ERD, Integration.                     |
+| **Syed Talha Khalid**              | Backend, Project Lead, Sprint Management, Deployment (Oracle Cloud).                  |
+| **Amrutha Balumuri**               | Order tracking system, Payment system, Frontend for Authentication.                   |
+| **Malneedi Venkata Sesha Sai**     | Admin activity page, Frontend for Admin module.                                       |
+| **Bhanu Lakshmi Narasimha Tadiboina** | UI components, Frontend (React, Figma).                                             |
+| **Divya Gayathri Kolloju**         | Unit & performance testing, Backend development.                                      |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Setup Instructions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Syntist/medi-ekart-app.git
+   git clone https://github.com/Syntist/medi-ekart-api.git
+   ```
 
-### Making a Progressive Web App
+2. **Install Dependencies**:
+   ```bash
+   cd medi-ekart-app
+   npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+   cd ../medi-ekart-api
+   npm install
+   ```
 
-### Advanced Configuration
+3. **Configure Environment Variables**:
+   Create `.env` files in both the frontend and backend directories with the appropriate configurations (e.g., MongoDB URI, JWT secrets).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+4. **Run the Backend**:
+   ```bash
+   cd medi-ekart-api
+   npm start
+   ```
 
-### Deployment
+5. **Run the Frontend**:
+   ```bash
+   cd medi-ekart-app
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+6. **Access the Application**:
+   Visit `http://localhost:3000` in your browser.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Project Links
+
+- **Main App GitHub Repository**: [Frontend Repository](https://github.com/Syntist/medi-ekart-app)
+- **Backend API GitHub Repository**: [Backend Repository](https://github.com/Syntist/medi-ekart-api)
+- **Deployed Website**: [Medi-Ekart Live App](https://medi-ekart-app.vercel.app/)
+
+---
+
+## Sprint Schedule
+
+| Sprint | Duration            | Focus Area                                                                                  |
+|--------|--------------------|---------------------------------------------------------------------------------------------|
+| **1** | Sept 25 - Oct 6    | Repository setup, database design, initial login, architecture diagrams.                   |
+| **2** | Oct 9 - Oct 20     | Consumer, Medoxer, and Provider modules (frontend & backend).                              |
+| **3** | Oct 23 - Nov 3     | Admin module, medicines page, activity pages.                                              |
+| **4** | Nov 6 - Nov 17     | Cart, order tracking, payment system, integration, and deployment.                         |
+
+---
+
+## Test Cases
+
+### Consumer Login Page
+
+| **Test Case ID** | **Title**          | **Description**                                                                                   | **Steps**                                                       | **Expected Result**                        | **Actual Result**                        |
+|------------------|--------------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------|--------------------------------------------|------------------------------------------|
+| CLP_01           | Consumer Signup    | Navigate to Sign-Up page from Login page.                                                        | Go to Login page, click "Don't have an account?"              | User navigates to Sign-Up page.            | Same as Expected Result                 |
+| CLP_02           | Consumer Login     | Login with valid credentials.                                                                    | Enter URL, click Login, enter credentials.                    | Consumer logs in successfully.             | Same as Expected Result                 |
+
+### Consumer Profile Page
+
+| **Test Case ID** | **Title**           | **Description**                                                                                   | **Steps**                                                       | **Expected Result**                        | **Actual Result**                        |
+|------------------|---------------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------|--------------------------------------------|------------------------------------------|
+| CPP_01           | Consumer Details    | Edit and save consumer profile details.                                                          | Login, go to profile, edit details, save.                     | Profile details are saved successfully.    | Same as Expected Result                 |
+
+### Medoxer Login Page
+
+| **Test Case ID** | **Title**           | **Description**                                                                                   | **Steps**                                                       | **Expected Result**                        | **Actual Result**                        |
+|------------------|---------------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------|--------------------------------------------|------------------------------------------|
+| MLP_01           | Medoxer Signup      | Navigate to Sign-Up page from Login page.                                                        | Go to Login page, click "Don't have an account?"              | User navigates to Sign-Up page.            | Same as Expected Result                 |
+| MLP_02           | Medoxer Login       | Login with valid credentials.                                                                    | Enter URL, click Login, enter credentials.                    | Medoxer logs in successfully.              | Same as Expected Result                 |
+
+### Medoxer Activity Page
+
+| **Test Case ID** | **Title**                          | **Description**                                                                                   | **Steps**                                                       | **Expected Result**                        | **Actual Result**                        |
+|------------------|------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------|--------------------------------------------|------------------------------------------|
+| MAP_01           | Validating Customer Prescription  | Medoxer validates a customer prescription.                                                       | Login, validate prescription.                                 | Prescription validated successfully.       | Same as Expected Result                 |
+| MAP_02           | Validating Provider Requests      | Medoxer validates provider requests.                                                             | Login, validate provider request.                             | Request validated successfully.            | Same as Expected Result                 |
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Citations
+
+- [Public Perception toward E-commerce of Medicines](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6662035/)
+- [Consumers Turning to the Internet Pharmacy Market](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6125612/)
+- [Understanding the Rise of Digital Pharmacies](https://pharmanewsintel.com/features/understanding-the-rise-of-digital-pharmacies)
